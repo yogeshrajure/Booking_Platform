@@ -82,7 +82,7 @@ app.use((req, res, next) => {
     next();
 });
 app.get("/", (req, res) => {
-  res.redirect("/listings");
+  res.redirect("/listing");
 });
 app.use('/listing', listingRoutes);
 app.use('/listing/:id/review', reviewRoutes);
