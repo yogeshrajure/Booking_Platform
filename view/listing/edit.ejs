@@ -1,0 +1,49 @@
+<% layout('./layouts/boilerplate')%>
+<body>
+    
+    
+
+    <div class="row offset-2">
+        
+        <form action="/listing/update/<%=editableListing._id %>?_method=PUT" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="col-8 mb-2 mt-2">
+                <h2>Edit your listing</h2>
+                <label for="title" class="form-label"  >Title</label>
+                <input type="text" class="form-control" name="listing[title]" required id="title" value="<%=editableListing.title %>">
+                <div class="invalid-feedback">Title should be concise</div>
+            </div>
+            
+            <div class="col-8 mb-2">
+                <label for="textarea" required class="form-label">Description</label>
+                <textarea name="listing[description]" id="" class="form-control"><%=editableListing.description %></textarea>
+                <div class="invalid-feedback">Description should be concise and clean</div>
+            </div>
+            
+            <div class="col-8 mb-2">
+                <label for="image" class="form-label">Upload new image</label>
+                <input type="file" name="listing[image]" id="" class="form-control">
+
+            </div>
+
+            <div class="col-8 mb-2">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" required name="listing[price]" value="<%=editableListing.price %>" class="form-control">
+                <div class="invalid-feedback">Price should be valid</div>
+            </div>
+
+            <div class="col-8 mb-2">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" required name="listing[location]" id="" value="<%=editableListing.location %>" class="form-control">
+                <div class="invalid-feedback">Location should be correct</div>
+            </div>
+            
+           <div class="col-8 mb-2">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" required name="listing[country]" id="" value="<%=editableListing.country %>" class="form-control">
+            <div class="invalid-feedback">Country should be valid</div>
+           </div>
+            
+            <button class="btn btn-primary ">Update</button>
+        </form>
+    </div>
+</body>

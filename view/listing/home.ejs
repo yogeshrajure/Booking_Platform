@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+
+  <h3 style="text-align: center;">Explore Stays</h3>
+
+  <div class="container">
+    <div class="row">
+      <% for( let listing of allListing){ %>
+        <% if(!listing.title || !listing.image.url || !listing.price || !listing.description ||!listing._id) continue; %>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card listing-card" style="width: 100%;">
+            <img src="<%=listing.image.url %>" class="card-img-top" alt="listing_image">
+            <div class="card-body">
+              <h5 class="card-title"><%=listing.title%></h5>
+              <h5 class="card-price">&#8377;<%=listing.price.toLocaleString("en-IN")%>/night</h5>
+              <a href="/listing/<%= listing._id %>" class="btn btn-primary">view</a>
+            </div>
+          </div>
+        </div>
+
+      <% } %>
+    </div>
+  </div>
+
+</body>
